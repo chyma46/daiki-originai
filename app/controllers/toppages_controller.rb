@@ -6,4 +6,7 @@ class ToppagesController < ApplicationController
       @reviews = current_user.reviews.order('created_at DESC').page(params[:page])
     end
   end
+  
+  def create
+  end
 end

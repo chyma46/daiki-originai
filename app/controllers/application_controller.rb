@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
-  private
+ private
 
   def require_user_logged_in
     unless logged_in?
@@ -14,3 +14,4 @@ class ApplicationController < ActionController::Base
   def counts(user)
     @count_reviews = user.reviews.count
   end
+end
