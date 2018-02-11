@@ -10,6 +10,7 @@
           <%= link_to user.name, user_path(user) %> <span class="text-muted">posted at <%= review.created_at %></span>
         </div>
         <div>
+          <p><%= review.sport %></p>
           <h3><%= review.title %></h3>
           <p><%= review.content %></p>
         </div>

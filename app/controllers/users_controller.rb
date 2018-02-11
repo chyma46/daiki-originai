@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @reviews = @user.reviews.order('created_at DESC').page(params[:page])
+
     counts(@user)
   end
 
@@ -26,6 +27,21 @@ class UsersController < ApplicationController
       flash.now[:danger] = 'ユーザの登録に失敗しました。'
       render :new
     end
+  end
+  
+  def soccer
+    @user = User.find(params[:id])
+    @reviews = @user.reviews.where(sport: "海外サッカー").order('created_at DESC').page(params[:page])
+  end
+  
+  def mlb
+    @user = User.find(params[:id])
+    @reviews = @user.reviews.where(sport: "MLB").order('created_at DESC').page(params[:page])
+  end
+  
+  def others
+    @user = User.find(params[:id])
+    @reviews = @user.reviews.where.not(sport: "海外サッカー").where.not(sport: "MLB").order('created_at DESC').page(params[:page])
   end
 
   private

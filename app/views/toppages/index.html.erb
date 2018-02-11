@@ -3,6 +3,7 @@
     <aside class="col-md-4">
       <%= form_for(@review) do |f| %>
         <div class="form-group">
+          <%= f.select :sport, [["海外サッカー", "海外サッカー"], ["MLB", "MLB"], ["その他", "その他"]] %>
           <%= f.text_field :title, class: 'form-control' %>
           <%= f.text_area :content, class: 'form-control', rows: 5 %>
         </div>
